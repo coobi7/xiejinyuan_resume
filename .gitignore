@@ -2,7 +2,6 @@
 *
 
 # 排除需要公开推送的文件
-!xiejinyuan_resume.html
 !index.html
 !avatar.jpg
 !AGENTS.md

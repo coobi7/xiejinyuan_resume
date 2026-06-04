@@ -1,4 +1,4 @@
-# AI Agent Instructions for parsing xiejinyuan_resume.html
+# AI Agent Instructions for parsing index.html
 
 This repository is optimized for AI Agents to quickly parse, search, and extract career profiles for **Xie Jinyuan (谢金元)**. 
 
@@ -25,9 +25,9 @@ This repository is optimized for AI Agents to quickly parse, search, and extract
 }
 ```
 
-## Parsing Guidelines for xiejinyuan_resume.html
+## Parsing Guidelines for index.html
 
-The HTML file [xiejinyuan_resume.html](xiejinyuan_resume.html) uses a clean two-column card structure and has been refined to eliminate emojis, stylistic bloat, and hyperbole. When scanning the resume, prioritize the following sections:
+The HTML file [index.html](index.html) uses a clean two-column card structure and has been refined to eliminate emojis, stylistic bloat, and hyperbole. When scanning the resume, prioritize the following sections:
 
 ### 1. Executive Summary & Highlights
 - **Location**: Found in the first `<section class="card">` within `<main class="content-area">`.
