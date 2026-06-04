@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谢金元 - 个人简历</title>
+    <style>
+        /* ==========================================
+           Facebook / Modern Tech Portal Design System
+           ========================================== */
+        :root {
+            --fb-blue: #1877f2;
+            --fb-blue-hover: #166fe5;
+            --fb-blue-light: #e7f3ff;
+            --fb-blue-dark: #0054ca;
+            --bg-gray: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-primary: #050505;
+            --text-secondary: #65676b;
+            --border-color: #e5e5e7;
+            --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 顶部装饰条 */
+        .top-accent-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #1877f2 0%, #00a400 100%);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* 主体布局 */
+        .resume-wrapper {
+            max-width: 1140px;
+            margin: 30px auto 60px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* ==========================================
+           左侧悬浮个人面板
+           ========================================== */
+        .sidebar {
+            position: sticky;
+            top: 30px;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px 24px;
+            box-shadow: var(--shadow-soft);
+            box-sizing: border-box;
+            transition: var(--transition-smooth);
+        }
+
+        .sidebar:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .profile-card {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 16px;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--card-bg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition-smooth);
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: var(--text-primary);
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: var(--fb-blue-dark);
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            letter-spacing: 0.2px;
+            background: var(--fb-blue-light);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 99px;
+        }
+
+        .profile-meta-simple {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* 侧边联系卡片 */
+        .sidebar-section {
+            margin-bottom: 24px;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            font-weight: 700;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .contact-icon {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-gray);
+            border-radius: 50%;
+            color: var(--text-secondary);
+        }
+
+        .contact-icon svg {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+        }
+
+        .contact-item a {
+            color: var(--fb-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-item a:hover {
+            color: var(--fb-blue-dark);
+            text-decoration: underline;
+        }
+
+        /* 技能/特质标签 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-pill {
+            font-size: 13px;
+            padding: 6px 12px;
+            background: var(--bg-gray);
+            color: var(--text-primary);
+            border-radius: 99px;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            cursor: default;
+        }
+
+        .tag-pill:hover {
+            background: var(--fb-blue);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .education-card {
+            background: var(--bg-gray);
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .edu-details {
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================
+           右侧流式主内容区
+           ========================================== */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            box-sizing: border-box;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--fb-blue-light);
+            color: var(--fb-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .section-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        /* ==========================================
+           快速总结卡片样式 (Highlights Card)
+           ========================================== */
+        .highlights-card {
+            background: linear-gradient(135deg, #e7f3ff 0%, #f4f9ff 100%);
+            border-left: 5px solid var(--fb-blue);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            box-shadow: inset 0 1px 3px rgba(24, 119, 242, 0.05);
+        }
+
+        .highlights-title {
+            margin: 0 0 12px 0;
+            color: var(--fb-blue-dark);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .highlights-title-decor {
+            width: 4px;
+            height: 14px;
+            background-color: var(--fb-blue);
+            border-radius: 2px;
+        }
+
+        .highlights-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4b4c4f;
+            font-size: 14px;
+        }
+
+        .highlights-list li {
+            margin-bottom: 8px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .highlights-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlights-list li strong {
+            color: var(--text-primary);
+        }
+
+        /* ==========================================
+           时间线 (Timeline) 样式
+           ========================================== */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            border-left: 2px solid var(--border-color);
+            margin-left: 12px;
+            margin-top: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 5px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--fb-blue);
+            border: 3px solid var(--card-bg);
+            box-shadow: 0 0 0 2px var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.3);
+            background-color: var(--fb-blue-dark);
+            box-shadow: 0 0 0 4px rgba(24, 119, 242, 0.2);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 4px 0;
+        }
+
+        .company-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .date-badge {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--fb-blue-dark);
+            background-color: var(--fb-blue-light);
+            padding: 4px 12px;
+            border-radius: 99px;
+        }
+
+        /* 内部项目细节卡片 */
+        .project-card {
+            background-color: var(--bg-gray);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-card:hover {
+            background-color: #f7f8fa;
+            border-color: var(--border-color);
+        }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+            border-left: 3px solid var(--fb-blue);
+            padding-left: 10px;
+        }
+
+        .detail-list {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 14.5px;
+            color: #2b2b2d;
+        }
+
+        .detail-list li {
+            margin-bottom: 10px;
+        }
+
+        .detail-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .sub-details-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .sub-details-content {
+            border-left: 2px solid var(--border-color);
+            padding-left: 14px;
+            margin-left: 4px;
+            font-size: 14px;
+            color: #4f5052;
+            margin-bottom: 8px;
+        }
+
+        /* ==========================================
+           技能分类展示样式 (Grid layout)
+           ========================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            transition: var(--transition-smooth);
+        }
+
+        .skill-card:hover {
+            border-color: var(--fb-blue);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .skill-category-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--fb-blue-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        .skill-item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-item-list li {
+            font-size: 13.5px;
+            color: #4b4c4f;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .skill-item-list li::before {
+            content: "•";
+            color: var(--fb-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* ==========================================
+           个人总结特别卡片
+           ========================================== */
+        .summary-card {
+            background: linear-gradient(135deg, #1877f2 0%, #0054ca 100%);
+            color: #ffffff;
+        }
+
+        .summary-card .section-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .summary-card .section-title {
+            color: #ffffff;
+        }
+
+        .summary-card .section-header {
+            border-bottom-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .summary-text {
+            font-size: 15.5px;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .summary-text strong {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* ==========================================
+           响应式与移动端优先优化 (手机端极为紧凑)
+           ========================================== */
+        @media (max-width: 900px) {
+            .resume-wrapper {
+                margin: 10px auto 30px;
+                padding: 0 10px;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            /* 侧边栏转为紧凑顶部栏 */
+            .sidebar {
+                position: relative;
+                top: 0;
+                padding: 16px 20px;
+                border-radius: 12px;
+            }
+
+            .profile-card {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                padding-bottom: 12px;
+                margin-bottom: 12px;
+                border-bottom: 1px solid var(--border-color);
+                gap: 16px;
+            }
+
+            .avatar-container {
+                width: 64px;
+                height: 64px;
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .profile-avatar {
+                width: 64px;
+                height: 64px;
+                border-width: 2px;
+            }
+
+            .profile-name {
+                font-size: 19px;
+                margin-bottom: 2px;
+            }
+
+            .profile-title {
+                font-size: 12px;
+                padding: 2px 8px;
+                margin-bottom: 4px;
+            }
+
+            .profile-meta-simple {
+                font-size: 12px;
+            }
+
+            .sidebar-section {
+                margin-bottom: 12px;
+            }
+
+            .sidebar-section-title {
+                font-size: 12px;
+                margin-bottom: 8px;
+                padding-bottom: 4px;
+            }
+
+            /* 联系方式横向排列 */
+            .contact-list {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .contact-item {
+                margin-bottom: 0;
+                font-size: 12.5px;
+            }
+
+            .contact-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 6px;
+            }
+
+            /* 教育经历单行紧凑 */
+            .education-card {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 12px;
+                border-radius: 8px;
+                font-size: 12.5px;
+            }
+
+            .edu-school {
+                margin-bottom: 0;
+            }
+
+            /* 特质标签紧凑化 */
+            .tag-cloud {
+                gap: 6px;
+            }
+
+            .tag-pill {
+                font-size: 12px;
+                padding: 4px 10px;
+            }
+
+            /* 解决移动端左侧空白过多，重塑时间线与列表缩进 */
+            .timeline {
+                border-left: none !important;
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+            }
+
+            .timeline-item {
+                margin-bottom: 24px !important;
+            }
+
+            .timeline-marker {
+                display: none !important;
+            }
+
+            .project-card {
+                padding: 14px 16px !important;
+                margin-bottom: 12px !important;
+                border-radius: 10px !important;
+            }
+
+            .project-title {
+                font-size: 15px !important;
+                margin-bottom: 8px !important;
+                padding-left: 8px !important;
+            }
+
+            .detail-list {
+                padding-left: 14px !important;
+                font-size: 13.5px !important;
+            }
+
+            .detail-list li {
+                margin-bottom: 6px !important;
+            }
+
+            .sub-details-title {
+                font-size: 13.5px !important;
+                margin-top: 6px !important;
+            }
+
+            .sub-details-content {
+                padding-left: 10px !important;
+                margin-left: 2px !important;
+                font-size: 13px !important;
+                margin-bottom: 6px !important;
+            }
+
+            .highlights-card {
+                padding: 14px 16px !important;
+                margin-bottom: 16px !important;
+                border-radius: 10px !important;
+            }
+
+            .highlights-list {
+                padding-left: 14px !important;
+                font-size: 13.5px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+
+            .company-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .date-badge {
+                align-self: flex-start;
+                margin-top: 4px;
+            }
+
+            .contact-list {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部装饰条 -->
+    <div class="top-accent-bar"></div>
+
+    <div class="resume-wrapper">
+        <div class="main-layout">
+            <!-- ========================== SIDEBAR START ========================== -->
+            <aside class="sidebar">
+                <div class="profile-card">
+                    <div class="avatar-container">
+                        <img src="http://m.qpic.cn/psc?/c6bdd1c3-db52-4893-96d1-41a9c694b466/LiySpxowE0yeWXwBdXN*SfTx1uNy8ZMB6KVICyb*5xn2dmJzsTjJdTxS8kbGkXYDaBQL.RLScNoTJVoiUJyLoGCdcXD4yvhQx1tJ8jr9rMQ!/b&bo=EAGSARABkgEBByA!&rf=viewer_4"
+                            alt="谢金元" class="profile-avatar">
+                    </div>
+                    <div>
+                        <h1 class="profile-name">谢金元</h1>
+                        <div class="profile-title">电气自动化工程专家</div>
+                        <p class="profile-meta-simple">12年汽车行业经验 | 35岁 | 群众 | 男</p>
+                    </div>
+                </div>
+
+                <!-- 联系信息 -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-section-title">联系方式</h2>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <span class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg>
+                            </span>
+                            <span>江西省赣州市</span>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                                </svg>
+                            </span>
+                            <a href="tel:+8615570095773">+86 15570095773</a>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
+                            </span>
+                            <a href="mailto:734730551@qq.com">734730551@qq.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 教育背景 -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-section-title">教育背景</h2>
+                    <div class="education-card">
+                        <div class="edu-school">九江职业技术学院</div>
+                        <div class="edu-details">大专 | 电气自动化 (2009.09 - 2011.11)</div>
+                    </div>
+                </div>
+
+                <!-- 个人核心特质标签 -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-section-title">职业特质</h2>
+                    <div class="tag-cloud">
+                        <span class="tag-pill">12年行业经验</span>
+                        <span class="tag-pill">陪产逻辑优化</span>
+                        <span class="tag-pill">安全PLC配置</span>
+                        <span class="tag-pill">HMI排版优化</span>
+                        <span class="tag-pill">欧姆龙/西门子/AB</span>
+                        <span class="tag-pill">AI工具辅助</span>
+                        <span class="tag-pill">快速自学能力</span>
+                    </div>
+                </div>
+            </aside>
+            <!-- ========================== SIDEBAR END ========================== -->
+
+            <!-- ========================== MAIN CONTENT START ========================== -->
+            <main class="content-area">
+
+                <!-- 个人总结与业绩提炼 -->
+                <section class="card">
+                    <div class="section-header">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </span>
+                        <h2 class="section-title">个人总结与业绩提炼</h2>
+                    </div>
+                    <p class="summary-text"
+                        style="color: var(--text-primary); margin-bottom: 20px; background: none; padding: 0;">
+                        主要从事汽车制造及非标自动化领域的电气自动化调试工作。在项目陪产及稳定运行阶段，注重结合现场实际痛点，主动开发实用辅助功能块，以提升设备运行效率与维护便利性。在 12
+                        年的工程实践中，始终坚持以严谨的控制逻辑与编码规范为主导，追求设备运行的稳定、安全与高效。
+                    </p>
+                    <div class="highlights-card" style="margin-bottom: 0;">
+                        <h3 class="highlights-title">
+                            <span class="highlights-title-decor"></span>
+                            核心业绩与亮点提炼 (Highlights)
+                        </h3>
+                        <ul class="highlights-list">
+                            <li><strong>大众吊具实时运行 HMI 独立开发</strong>：在青岛总装项目陪产期间，<strong>独立开发了吊具实时动态布局 HMI
+                                    画面</strong>，实现各吊具在线体精确位置与车型载车状态的可视化展示，大幅提高排故效率，该功能为大众工厂首次引入。</li>
+                            <li><strong>产线节拍优化经验</strong>：在零跑项目，通过控制程序动作重组，实现<strong>两个拧紧工位单工位节拍各缩短 9
+                                    秒</strong>，<strong>内转子压装工位节拍缩短 5 秒</strong>，提升了工位产出效率。</li>
+                            <li><strong>通用控制功能块独立开发</strong>：熟练运用安全 PLC 与博途开发，曾自主编写 Inovance SLS (安全限制速度)
+                                伺服安全控制块、通用质量监控分析块、以及动力电池线工装板柔性调度调度块。</li>
+                            <li><strong>车企标准与作业规范</strong>：严格遵循并践行德国大众、戴姆勒（奔驰）等车企电气控制与 HMI 组态规范，具备严谨 the 工程作业标准。</li>
+                            <li><strong>系统隐患排查优化</strong>：对非标设备控制隐患（如置位改自复位、消除过度计时器依赖、极限位记忆置位与安全报警等）具有丰富的优化经验，提升系统运行安全。
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 工作经历卡片 -->
+                <section class="card">
+                    <div class="section-header">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+                            </svg>
+                        </span>
+                        <h2 class="section-title">工作经历</h2>
+                    </div>
+
+                    <!-- 时间轴开始 -->
+                    <div class="timeline">
+
+                        <!-- 经历 1：上海芬能 -->
+                        <div class="timeline-item">
+                            <span class="timeline-marker"></span>
+                            <div class="company-header">
+                                <div>
+                                    <h3 class="company-name">上海芬能工业自动化</h3>
+                                    <span class="company-meta">电气工程师</span>
+                                </div>
+                                <span class="date-badge">2025.09 - 至今</span>
+                            </div>
+
+                            <!-- 项目一：零跑 -->
+                            <div class="project-card">
+                                <h4 class="project-title">湖州零跑电子油泵项目 (2025.12 - 2026.05)</h4>
+                                <ul class="detail-list">
+                                    <li>
+                                        <div class="sub-details-title">核心工位程序调试与工艺集成：</div>
+                                        <div class="sub-details-content">
+                                            基于博途 <strong>S7-1515F 安全 CPU</strong> 与 <strong>GRAPH (S7-Graph)</strong>
+                                            步序控制语言，负责 PCB 安装、热铆焊接、密封圈安装、涂导热胶、端盖安装及端盖拧紧共计 6
+                                            个核心工艺工位的程序调试。在短时间内完成了较大工作量的程序修改与现场对接，春节后应客户要求回到现场负责后续调试工作。
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sub-details-title">产线节拍优化：</div>
+                                        <div class="sub-details-content">
+                                            分析整线动作节拍，通过优化气缸动作重叠、缩短气爪等待节拍等手段，实现<strong>两个拧紧工位单工位节拍各缩短 9
+                                                秒</strong>，<strong>内转子压装工位节拍缩短 5 秒</strong>，提升了工位产出效率。
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sub-details-title">流程改善与柔性控制：</div>
+                                        <div class="sub-details-content">
+                                            <ul>
+                                                <li><strong>NG 智能过滤机制</strong>：提出并实施了“非工艺核心参数异常导致的 NG 免除单次人工确认，连续 3 次 NG
+                                                    触发停机报警”的过滤逻辑，并在现场推广应用。</li>
+                                                <li><strong>提升机层数重检</strong>：优化提升机控制逻辑，使其能够自动判断是否需要重新检测层数，并保留检测前的穴位记录。
+                                                </li>
+                                                <li><strong>过程安全与柔性防错</strong>：在端盖安装工位增加端盖二维码校验与自动追溯生成记录；在压装工位实现了取料失败自动重新取料的自动异常恢复。优化安全门程序，支持自动模式下安全开门暂停、关门后自动恢复运行。
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- 项目二：摄像头雷达 -->
+                            <div class="project-card">
+                                <h4 class="project-title">汽车摄像头与雷达自动化组装线项目 (2025.09 - 2025.12)</h4>
+                                <ul class="detail-list">
+                                    <li>
+                                        <div class="sub-details-title">SLS 伺服安全控制集成：</div>
+                                        <div class="sub-details-content">
+                                            负责开发 <strong>Inovance SV680F SLS (Safely-Limited Speed)
+                                                伺服安全控制功能块</strong>，通过使能开关和加减按钮控制整站慢速运行，并限制在安全区间内，实现了更安全的设备调试。
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sub-details-title">精密扭矩控制：</div>
+                                        <div class="sub-details-content">
+                                            基于博途 TIA Portal 标准报文 (102 + 750) 深入封装了汇川 SV660
+                                            伺服扭矩控制程序，实现对螺丝拧紧扭矩与拧紧后回旋角度的精确闭环控制。
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sub-details-title">设备效能优化与质量分析：</div>
+                                        <div class="sub-details-content">
+                                            针对视觉相机通信无反馈导致的设备假死停机，重新设计了通信握手逻辑。开发了通用的 <strong>NG 监控功能块</strong>，支持在 HMI
+                                            上自定义窗口范围进行连续/累计不良率分析。负责区域运行稳定，产出率符合交付要求。
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sub-details-title">HMI 交互优化：</div>
+                                        <div class="sub-details-content">
+                                            优化整线 HMI 界面（威纶通/WinCC）的排版布局，适配多语言文本展示。优化了开门权限弹窗的防假死与异常关闭防护逻辑，提升操作界面健壮性。
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 经历 2：国轩高科 -->
+                        <div class="timeline-item">
+                            <span class="timeline-marker"></span>
+                            <div class="company-header">
+                                <div>
+                                    <h3 class="company-name">安徽桐城-合肥 | 国轩高科</h3>
+                                    <span class="company-meta">电气工程师</span>
+                                </div>
+                                <span class="date-badge">2025.05 - 2025.09</span>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">非标动力电池生产线调试与优化</h4>
+                                <ul class="detail-list">
+                                    <li><strong>快速熟悉新平台</strong>：首次接触欧姆龙 PLC 平台、步序控制程序架构以及威纶通
+                                        HMI，在一周内切入正轨，两周内完全解构整体程序框架，并独立承担调试与优化工作。</li>
+                                    <li><strong>基于规范优化设备遗留隐患（提升安全与稳定性）</strong>：
+                                        <ul>
+                                            <li>把原程序中过度依赖软件计时器进行动作判断的“延迟动作逻辑”替换为到位传感器硬件连锁控制，消除动作隐性时差隐患。</li>
+                                            <li>将手动按钮置位开关改为自复位开关，保障手动调试时的设备与操作安全。</li>
+                                            <li>为升降机设计极限位记忆与安全报警功能，解决原故障隐瞒、复位即二次失控的逻辑隐患。</li>
+                                            <li>排查并修正了线体与升降机交接处无阻挡、缝隙检测传感器独立性不足、感应片过小等现场物理设计缺陷。</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>开发工装板调度功能</strong>：独立研发出一套工装板调度功能块，支持自动配组和手动精准指派，允许在维护时将任意工装板送入指定支线，提升了线体维护效率。
+                                    </li>
+                                    <li><strong>程序规范化与 HMI 布局优化</strong>：系统化修正程序中不规范命名与错误注释。结合 Photoshop 技能，在现场重绘了威纶通
+                                        HMI 界面上的设备线体拓扑图，消除了心跳图标的严重锯齿，提升了操作界面的直观性。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 经历 3：不莱梅贝克 -->
+                        <div class="timeline-item">
+                            <span class="timeline-marker"></span>
+                            <div class="company-header">
+                                <div>
+                                    <h3 class="company-name">不莱梅贝克（上海）工业自动化技术有限公司</h3>
+                                    <span class="company-meta">工程部 | 电气工程师</span>
+                                </div>
+                                <span class="date-badge">2017.05 - 2021.09</span>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">大众青岛总装项目 (BA34 & BA7)</h4>
+                                <ul class="detail-list">
+                                    <li>负责总装线吊具、升降机、电池充电线及大板线的电气检查、信号对接、程序调试（基于大众标准）及 HMI (WinCC) 界面开发与制作。</li>
+                                    <li>核心技术涉及：LJU 控制器、SEW 变频器、激光测距传感器、博途 (TIA Portal)。</li>
+                                    <li><strong>项目优化贡献（陪产阶段）</strong>：独立开发吊具实时动态布局 HMI
+                                        画面，实现各吊具在线体上的精确位置可视化、车型载车状态显示、高亮显示故障及条码读取无效吊具，并支持通过吊具号手动快速检索。</li>
+                                </ul>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">大众长沙/上海车身辊床项目</h4>
+                                <ul class="detail-list">
+                                    <li>负责辊床输送线控制系统的信号对接与程序调试，涵盖伸缩叉堆垛机、平面库区等复杂应用场景。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 经历 4：上海瀚灏 -->
+                        <div class="timeline-item">
+                            <span class="timeline-marker"></span>
+                            <div class="company-header">
+                                <div>
+                                    <h3 class="company-name">上海瀚灏自动化工程技术有限公司</h3>
+                                    <span class="company-meta">工程部 | 电气工程师</span>
+                                </div>
+                                <span class="date-badge">2014.08 - 2017.04</span>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">上汽集团荣威RX5车身车间提速改造项目</h4>
+                                <ul class="detail-list">
+                                    <li>主导车身辊床输送线的产能提升与库区扩容工作，指导电气安装、程序调试（基于 AB PLC），实现 6x6 库区按车型自动分拣出入库。</li>
+                                    <li><strong>HMI 优化</strong>：设计了基于 RFID 数据校准的辊床车型数据实时展示与中控调度画面，方便了车间对物料的精细化调度。</li>
+                                </ul>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">北京奔驰 BBAC MRA2 总装吊具项目 (TRIM3 & TRIM4)</h4>
+                                <ul class="detail-list">
+                                    <li>配合进行电气安装检查、信号对接、无线网络配置，并独立接手程序调试（基于戴姆勒 INTEGRA 标准）和大部分 HMI 界面开发。</li>
+                                </ul>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">北京奔驰 NGCC 总装吊具产能节拍提速项目</h4>
+                                <ul class="detail-list">
+                                    <li>优化缓存区吊具运行曲线，合理调整加减速区间；优化交接工位动作时机，缩短循环时间。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 经历 5：上海浩亚 -->
+                        <div class="timeline-item">
+                            <span class="timeline-marker"></span>
+                            <div class="company-header">
+                                <div>
+                                    <h3 class="company-name">上海浩亚机电有限公司</h3>
+                                    <span class="company-meta">工程部 | 电气工程师/技术员</span>
+                                </div>
+                                <span class="date-badge">2011.11 - 2014.06</span>
+                            </div>
+                            <div class="project-card">
+                                <h4 class="project-title">上汽大众六厂冲压车间废料输送线项目</h4>
+                                <ul class="detail-list">
+                                    <li>负责输送线调试与陪产。开发 HMI 功能，实现速度设置、电流阈值设定、实时电流数据与故障记录存储，并以趋势图形式展示。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 经历 6：江西赣州（电商） -->
+                        <div class="timeline-item">
+                            <span class="timeline-marker"></span>
+                            <div class="company-header">
+                                <div>
+                                    <h3 class="company-name">江西赣州 | 家庭电商店铺运营</h3>
+                                    <span class="company-meta">店铺运营与管理</span>
+                                </div>
+                                <span class="date-badge">2022.07 - 2024.04</span>
+                            </div>
+                            <div class="project-card">
+                                <ul class="detail-list">
+                                    <li>因照顾家庭原因暂时回归赣州。在此期间独立管理并运营家庭淘宝电商店铺，自学 Photoshop 进行商品图片处理，并对接工厂 ERP
+                                        自动化发货系统，优化了发货流程。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 经历 7：江西赣州（合作） -->
+                        <div class="timeline-item">
+                            <span class="timeline-marker"></span>
+                            <div class="company-header">
+                                <div>
+                                    <h3 class="company-name">江西赣州 | 电气工程师 (项目合作)</h3>
+                                    <span class="company-meta">项目合作调试</span>
+                                </div>
+                                <span class="date-badge">2021.10 - 2022.07</span>
+                            </div>
+                            <div class="project-card">
+                                <ul class="detail-list">
+                                    <li>参与江西本地多个工厂的自动化项目改造。负责非标自动化生产线（如输送线、升降台、旋转托盘）的电气调试，主要使用西门子 PLC
+                                        及触摸屏，并为本地工厂提供驻厂维护与技术支持。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 时间轴结束 -->
+                </section>
+
+                <!-- 专业技能卡片 -->
+                <section class="card">
+                    <div class="section-header">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.3C.5 6.7.9 9.8 2.9 11.8c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.1z" />
+                            </svg>
+                        </span>
+                        <h2 class="section-title">专业技能</h2>
+                    </div>
+
+                    <!-- 专业技能快速总结 -->
+                    <div class="highlights-card">
+                        <h3 class="highlights-title">
+                            <span class="highlights-title-decor"></span>
+                            技能提炼 (Quick Summary)
+                        </h3>
+                        <ul class="highlights-list">
+                            <li><strong>PLC 编程调试</strong>：熟练掌握西门子 TIA Portal / STEP 7、罗克韦尔 AB Studio 5000 编程，熟悉欧姆龙等主流
+                                PLC 平台开发。</li>
+                            <li><strong>HMI 组态规范</strong>：精通 WinCC、威纶通组态开发，熟悉大众、戴姆勒等主流车企的 HMI 界面规范与排版标准。</li>
+                            <li><strong>工业硬件配置</strong>：熟悉 Profinet / Profibus / Ethernet/IP
+                                等现场总线，熟练配置主流伺服驱动（汇川等）、变频器（SEW等）及常规传感器。</li>
+                            <li><strong>Web 基础自学</strong>：具备 Web 前端基础，掌握 HTML5 / CSS3 / JavaScript (ES6+)，并能合理运用 AI
+                                工具辅助辅助编写业务代码。</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h3 class="skill-category-title">PLC 编程与调试</h3>
+                            <ul class="skill-item-list">
+                                <li>西门子博途 (TIA Portal v15-v19)</li>
+                                <li>西门子 Step7, S7-PLCSIM</li>
+                                <li>罗克韦尔 AB Studio 5000</li>
+                                <li>欧姆龙 (Sysmac Studio)</li>
+                                <li>S7-Graph 步序控制、安全 PLC 编程</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h3 class="skill-category-title">HMI 组态界面</h3>
+                            <ul class="skill-item-list">
+                                <li>西门子 WinCC Flexible / WinCC (博途)</li>
+                                <li>威纶通 EasyBuilder Pro</li>
+                                <li>戴姆勒 INTEGRA 标准 HMI 开发</li>
+                                <li>大众汽车 HMI 界面规范与排版优化</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h3 class="skill-category-title">工业通信网络</h3>
+                            <ul class="skill-item-list">
+                                <li>Profinet & Profibus DP 工业总线</li>
+                                <li>Ethernet/IP 通信配置</li>
+                                <li>西门子安全 PLC 专用网络配置</li>
+                                <li>博途 102/750 报文伺服组态</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h3 class="skill-category-title">运动控制与硬件</h3>
+                            <ul class="skill-item-list">
+                                <li>汇川 SV680F / SV660 ，西门子V90 伺服调试及扭矩控制</li>
+                                <li>SEW 变频器参数配置与定位初始化</li>
+                                <li>基恩士 SR1000 扫码枪、LJU 吊具控制器</li>
+                                <li>激光测距传感器、工业 RFID 读写集成</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h3 class="skill-category-title">软件工具与跨界</h3>
+                            <ul class="skill-item-list">
+                                <li>Photoshop 图像处理与界面元素优化</li>
+                                <li>HTML5 / CSS3 / JavaScript (ES6+ 基础)</li>
+                                <li>Mapbox API, Netlify, Supabase 基础应用</li>
+                                <li>AI 编码辅助工具 (Codex,Cursor 等) 实际应用</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 技术探索与自我提升卡片 -->
+                <section class="card">
+                    <div class="section-header">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C8.62 12.18 8 10.66 8 9c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.66-.62 3.18-1.15 4.1z" />
+                            </svg>
+                        </span>
+                        <h2 class="section-title">技术探索与项目实践</h2>
+                    </div>
+
+                    <div class="project-card">
+                        <h4 class="project-title">AI 工具辅助应用与全栈项目实践</h4>
+                        <ul class="detail-list">
+                            <li><strong>AI 工具协作</strong>: 擅长运用人工智能工具（如 Codex、Cursor 等）辅助日常电气调试及业务代码开发。注重将 AI
+                                作为提升工作效率与辅助学习的协作工具。</li>
+                            <li><strong>工程控制导向</strong>: 在运用 AI 协助编写逻辑时，始终坚持以个人扎实的控制程序规范和命名标准为主导，确保所有生成的代码块符合模块化与可靠性规范。
+                            </li>
+                            <li><strong>全栈自学实践</strong>: 作为自主探索的一部分，基于 Mapbox 与 Supabase 独立开发并部署过一款路径规划与等高线地图工具。在借助 AI
+                                工具快速切入前端与云服务的同时，自主梳理并搭建起整体业务框架。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 其他信息卡片 -->
+                <section class="card">
+                    <div class="section-header">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                            </svg>
+                        </span>
+                        <h2 class="section-title">其他说明</h2>
+                    </div>
+                    <ul class="detail-list">
+                        <li><strong>快速学习能力</strong>：面对全新的开发平台能够做到短时间切入正轨，具有一定的多语种团队协作及现场调试经验。</li>
+                        <li><strong>工作原则</strong>：工作以结果为导向，面对现场复杂故障时，能够与各方保持良好沟通，并在职责范围外积极排查与优化安全及效率隐患。</li>
+                        <li><strong>文档与培训能力</strong>：编写了多套项目相关的电气教材与标准文档，具备对现场操作与维护人员的培训赋能经验。</li>
+                    </ul>
+                </section>
+
+            </main>
+            <!-- ========================== MAIN CONTENT END ========================== -->
+        </div>
+    </div>
+
+    <!-- 苹果级动效辅助交互脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 对所有的标签进行微小动效处理
+            const pills = document.querySelectorAll('.tag-pill');
+            pills.forEach(pill => {
+                pill.addEventListener('mouseenter', () => {
+                    pill.style.boxShadow = '0 4px 8px rgba(24, 119, 242, 0.2)';
+                });
+                pill.addEventListener('mouseleave', () => {
+                    pill.style.boxShadow = 'none';
+                });
+            });
+
+            console.log("%c欢迎阅读谢金元的简历。页面加载完毕，交互脚本已就绪。", "color:#1877f2; font-size:14px; font-weight:bold;");
+        });
+    </script>
+</body>
+
+</html>

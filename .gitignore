@@ -1,0 +1,8 @@
+# 忽略工作区下的所有文件，防止个人面试材料与私有数据泄露
+*
+
+# 排除需要公开推送的文件
+!xiejinyuan_resume.html
+!AGENTS.md
+!.gitignore
+!README.md
