@@ -650,18 +650,61 @@
                 margin-right: 6px;
             }
 
-            /* 教育经历单行紧凑 */
+            /* 教育经历移动端卡片式堆叠 */
             .education-card {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px 12px;
+                display: block;
+                padding: 10px 14px;
                 border-radius: 8px;
-                font-size: 12.5px;
+                font-size: 13px;
             }
 
             .edu-school {
-                margin-bottom: 0;
+                display: block;
+                font-weight: 700;
+                margin-bottom: 4px;
+                font-size: 13.5px;
+            }
+
+            .edu-details {
+                display: block;
+                color: var(--text-secondary);
+            }
+
+            /* 公司头部移动端流式排版 */
+            .company-header {
+                display: block;
+                margin-bottom: 12px;
+            }
+
+            .company-header > div {
+                display: inline;
+            }
+
+            .company-name {
+                display: block;
+                font-size: 16.5px;
+                margin-bottom: 4px;
+            }
+
+            .company-meta {
+                display: inline-block;
+                font-size: 13.5px;
+                color: var(--text-secondary);
+                margin-right: 8px;
+                vertical-align: middle;
+            }
+
+            .date-badge {
+                display: inline-block;
+                font-size: 12px;
+                padding: 2px 8px;
+                border-radius: 4px;
+                background-color: var(--fb-blue-light);
+                color: var(--fb-blue-dark);
+                font-weight: 600;
+                vertical-align: middle;
+                margin-top: 0;
+                align-self: unset;
             }
 
             /* 特质标签紧凑化 */
@@ -737,16 +780,6 @@
         @media (max-width: 600px) {
             .card {
                 padding: 20px;
-            }
-
-            .company-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .date-badge {
-                align-self: flex-start;
-                margin-top: 4px;
             }
 
             .contact-list {
